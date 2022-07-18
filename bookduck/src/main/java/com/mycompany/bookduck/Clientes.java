@@ -13,7 +13,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 /**
  *
- * @author davi2
+ * @author guilherme
  */
 public class Clientes implements Serializable {
     private final ArrayList<Cliente> clientes = new ArrayList<>();
