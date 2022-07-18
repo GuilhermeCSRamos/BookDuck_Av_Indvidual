@@ -1,0 +1,23 @@
+DuckBook()
+	Pessoa(cpf, nome, email)
+		Funcionario(vinculo, tempoDeServiço, salario, dataContração)
+			aumentoSalario();
+			pagamento();
+			férias();
+			promoção();
+			desligamento();
+		Cliente(pontoDeFidelidade, livrosEmprestados, histórico<Historico>)
+			emprestimo();
+			devolução();
+			atualizaFidelidade();
+
+	Obra(id, titulo, localização, dataPublicaçao, editora)
+		interfaceRevistaJornal()
+			Revista(tema, seção)
+			Jornal(seção)
+		quadrinhoLivro(autor, volume, genero, quantidadePaginas)
+			Quadrinho()
+			Livro()
+
+Historico(Obra, dataEmprestimo, dataDevolução, atraso)
+	atraso();
