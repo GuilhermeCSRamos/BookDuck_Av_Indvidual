@@ -4,6 +4,7 @@
  */
 package com.mycompany.bookduck;
 
+import com.mycompany.bookduck.exceptions.AvaliacaoOO2022NaoInformadaException;
 import java.util.ArrayList;
 import com.mycompany.bookduck.pessoa.Cliente;
 import java.io.*;
@@ -54,7 +55,7 @@ public class Clientes implements Serializable {
             c.printaEmprestados();
     }
     
-    public void alterarArquivo() throws FileNotFoundException, IOException{
+    public void alterarArquivo() throws FileNotFoundException, IOException, AvaliacaoOO2022NaoInformadaException{
         FileWriter file = new FileWriter("clientes.txt");
         BufferedWriter objeto = new BufferedWriter(file);
         for(Cliente c : this.clientes){
@@ -66,8 +67,24 @@ public class Clientes implements Serializable {
             objeto.append(",");
             objeto.write(String.valueOf(c.getPontoDeFidelidade()));
             objeto.append("=");
+            
+            System.out.print(c.getAvaliacao().getNome());
+            try{
+                if (c.getAvaliacao() == null){
+                    throw new AvaliacaoOO2022NaoInformadaException();
+                } 
+                else {
+                    FileOutputStream arquivo = new FileOutputStream("avaliacao.guilherme");
+                    ObjectOutputStream object = new ObjectOutputStream(arquivo);
+                    object.writeObject(c);
+                    object.close();
+                }
+            }
+            catch(AvaliacaoOO2022NaoInformadaException ex){
+                System.out.println(ex.getMessage());
+            }
         }
-        objeto.close();        
+        objeto.close();
     }
     
     public void carregarArquivo(Clientes clientes) throws FileNotFoundException, IOException, ClassNotFoundException{

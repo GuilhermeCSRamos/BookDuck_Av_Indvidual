@@ -1,21 +1,15 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package com.mycompany.bookduck.pessoa;
 
 import com.mycompany.bookduck.Historico.HistoricoPessoa;
 import com.mycompany.bookduck.Obra.Obra;
+import com.mycompany.bookduck.models.AvaliacaoOO2022;
 import java.io.Serializable;
 
-/**
- *
- * @author davi2
- */
 public class Cliente extends Pessoa implements Serializable{
     private int pontoDeFidelidade = 0;
     private HistoricoPessoa historico;
-    
+    private AvaliacaoOO2022 avaliacao;
+
     
     public Cliente(){
         historico = new HistoricoPessoa();
@@ -30,7 +24,19 @@ public class Cliente extends Pessoa implements Serializable{
     public Cliente(int pontoDeFidelidade){
         this.pontoDeFidelidade = pontoDeFidelidade;
     }
-    
+
+    public Cliente(AvaliacaoOO2022 avaliacao, String cpf, String email, String name) {
+        super(cpf, email, name);
+        this.avaliacao = avaliacao;
+    }
+
+    public AvaliacaoOO2022 getAvaliacao() {
+        return avaliacao;
+    }
+
+    public void setAvaliacao(AvaliacaoOO2022 avaliacao) {
+        this.avaliacao = avaliacao;
+    }
 
     public int getPontoDeFidelidade() {
         return pontoDeFidelidade;

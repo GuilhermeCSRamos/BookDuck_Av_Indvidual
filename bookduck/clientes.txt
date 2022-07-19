@@ -1,1 +1,1 @@
-guilherme ramos,123,qwe,0=davi waffen ss,123,qwe,0=davi,123,dave@uff,0=guirra,456,guirra@uff,0=
+1,1,1,0=

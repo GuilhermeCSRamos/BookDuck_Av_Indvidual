@@ -4,7 +4,7 @@ package com.mycompany.bookduck;
 import java.util.Scanner;
 import com.mycompany.bookduck.Historico.Catalogo;
 import com.mycompany.bookduck.Obra.Obra;
-import com.mycompany.bookduck.Clientes;
+import com.mycompany.bookduck.models.AvaliacaoOO2022;
 import com.mycompany.bookduck.pessoa.Cliente;
 import com.mycompany.bookduck.pessoa.Funcionario;
 import java.io.FileNotFoundException;
@@ -87,7 +87,7 @@ public class Bookduck {
         Clientes clientes = new Clientes();
         Funcionarios funcionarios = new Funcionarios();
         catalogo.carregarArquivo(catalogo);
-        clientes.carregarArquivo(clientes);
+//        clientes.carregarArquivo(clientes);
         funcionarios.carregarArquivo(funcionarios);
         
         
@@ -97,6 +97,9 @@ public class Bookduck {
         int of = 0;
         do{
             Scanner entrada = new Scanner(System.in);
+            
+            System.out.println("A avaliação individual está em cliente");
+
             if (opcao != 0)
                 menu();
             System.out.print("-> ");
@@ -113,9 +116,9 @@ public class Bookduck {
                     Obra obra = null; 
                     switch(cl){
                         case 1:
-                            
+
                             Cliente c = new Cliente();
-                            System.out.print("Nome: ");
+                            System.out.print("Nome(cliente): ");
                             clearBuffer(entrada);
                             
                             c.setName(entrada.nextLine());
@@ -125,7 +128,24 @@ public class Bookduck {
                             
                             System.out.print("Email: ");
                             c.setEmail(entrada.next());
-                           
+                            
+                            System.out.print("Nome(avaliação): ");
+                            clearBuffer(entrada);
+                            String nome = entrada.nextLine();
+                            
+                            System.out.print("Matricula(avaliação): ");
+                            String matricula = entrada.nextLine();
+                            
+                            System.out.print("Nota(avaliação): ");
+                            String nota = entrada.next();
+//                            System.out.print("Ok...1");
+
+                            clearBuffer(entrada);
+
+                            AvaliacaoOO2022 avaliacao = new AvaliacaoOO2022(nome, matricula, nota);
+                            
+                            c.setAvaliacao(avaliacao);
+                            
                             System.out.println();
                             clientes.addCliente(c);
                             break;
