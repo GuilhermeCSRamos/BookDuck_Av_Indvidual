@@ -138,7 +138,6 @@ public class Bookduck {
                             
                             System.out.print("Nota(avaliação): ");
                             String nota = entrada.next();
-//                            System.out.print("Ok...1");
 
                             clearBuffer(entrada);
 
