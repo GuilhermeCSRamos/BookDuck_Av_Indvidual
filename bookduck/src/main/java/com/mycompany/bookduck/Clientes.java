@@ -68,7 +68,12 @@ public class Clientes implements Serializable {
             objeto.write(String.valueOf(c.getPontoDeFidelidade()));
             objeto.append("=");
             
-            System.out.print(c.getAvaliacao().getNome());
+//            Avaliação individual
+//          Nesse caso, quando o programa é reaberto, pelo motivo de os clientes estarem sendo salvos em texto, 
+//          temos o lançamento deste erro para os objetos Cliente que vêm do arquivo de texto (usado como BD), 
+//          entretanto no que diz respeito ao objeto Cliente criado no tempo de execução, o try catch tem o 
+//          comportamento esperado. Bem, de certa forma até o lançamento de erro citado a cima é esperado.
+
             try{
                 if (c.getAvaliacao() == null){
                     throw new AvaliacaoOO2022NaoInformadaException();

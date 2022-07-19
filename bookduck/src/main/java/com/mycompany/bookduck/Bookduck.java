@@ -87,7 +87,7 @@ public class Bookduck {
         Clientes clientes = new Clientes();
         Funcionarios funcionarios = new Funcionarios();
         catalogo.carregarArquivo(catalogo);
-//        clientes.carregarArquivo(clientes);
+        clientes.carregarArquivo(clientes);
         funcionarios.carregarArquivo(funcionarios);
         
         
